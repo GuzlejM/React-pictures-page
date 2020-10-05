@@ -1,16 +1,13 @@
 import React from 'react';
+import './ImageList.css';
+import ImageCard from './ImageCard'
 
 const ImageList = (props) => {
-    const images = props.images.map( ({desciption, id, urls}) => {
-        return  <div key={id} className="column">
-                    <img alt={desciption} key={id} src={urls.small}  className="ui segment" />
-                </div>
-                
+    const images = props.images.map( (image) => {
+        return <ImageCard key={image.id} image={image}/>;      
     });
 
-return <div className="ui three column grid">
-                {images}
-        </div>;
+return <div className="image-list">{images}</div>;
 };
 
 export default ImageList;
